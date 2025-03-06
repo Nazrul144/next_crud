@@ -1,3 +1,5 @@
+import { MongoClient, ServerApiVersion } from "mongodb";
+
 let db;
 export const connectDB = async ()=>{
     if(db) return db;
@@ -8,4 +10,6 @@ export const connectDB = async ()=>{
           deprecationErrors: true,
         }
       });
+      db = client.db('nextCRUD')
+      return db;
 }

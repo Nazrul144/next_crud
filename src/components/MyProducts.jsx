@@ -27,7 +27,7 @@ const MyProducts = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full lg:px-16 mt-12">
         {products?.map((product) => (
           <Card key={product._id} >
-            <CardMedia component='div' className="flex justify-center items-center ml-20">
+            <CardMedia component='div' className="flex justify-center items-center ml-24">
                 <Image src={product.image} alt={product.name} width={300} height={300}/>
             </CardMedia>
             <CardContent>

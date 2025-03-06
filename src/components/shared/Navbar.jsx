@@ -12,11 +12,11 @@ const Navbar = () => {
         },
         {
             title: 'AddProduct',
-            path: '/addProduct'
+            path: '/addProducts'
         },
         {
             title: 'MyProduct',
-            path: '/myProduct'
+            path: '/myProducts'
         },
     ]
     return (

@@ -26,9 +26,9 @@ const MyProducts = () => {
 
   return (
     <div>
-      <Link href={""}>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full lg:px-16 mt-12">
-          {products?.map((product) => (
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full lg:px-16 mt-12">
+        {products?.map((product) => (
+          <Link key={product._id} href={`/myProducts/${product._id}`}>
             <Card key={product._id}>
               <CardMedia component="div" className="flex justify-center items-center ml-24">
                 <Image src={product.image} alt={product.name} width={300} height={300} />
@@ -62,9 +62,9 @@ const MyProducts = () => {
                 <Button size="small">Delete</Button>
               </CardActions>
             </Card>
-          ))}
-        </div>
-      </Link>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };

@@ -1,10 +1,11 @@
-import MyProduct from '@/components/MyProduct';
+
+import MyProducts from '@/components/MyProducts';
 import React from 'react';
 
 const MyProductPage = () => {
     return (
         <div>
-            <MyProduct/>
+            <MyProducts/>
         </div>
     );
 }

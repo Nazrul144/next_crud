@@ -27,16 +27,15 @@ const MyProducts = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full lg:px-16 mt-12">
         {products?.map((product) => (
           <Card key={product._id} >
-            <CardMedia>
+            <CardMedia component='div' className="flex justify-center items-center">
                 <Image src={product.image} alt={product.name} width={300} height={300}/>
             </CardMedia>
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                Lizard
-              </Typography>
-              <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except
-                Antarctica
+              <Typography gutterBottom component="div">
+                <h3 className="font-semibold text-orange-600">Brand:{product.name}</h3>
+                <h3 className="font-semibold text-orange-600">Price:{product.price}</h3>
+                <h3 className="font-semibold text-orange-600">Guarantee:{product.guarantee}</h3>
+                <h3 className="font-semibold text-orange-600">Ratting:{product.rating}</h3>
               </Typography>
             </CardContent>
             <CardActions className="flex justify-between">

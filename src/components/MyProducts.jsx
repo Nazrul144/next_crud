@@ -9,15 +9,18 @@ import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import { Rate } from "antd";
 import Link from "next/link";
+import { Box, CircularProgress } from "@mui/material";
 
 const MyProducts = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getData = async () => {
       const res = await fetch("http://localhost:3000/myProducts/api");
       const data = await res.json();
       setProducts(data.res);
+      setLoading(false);
     };
     getData();
   }, []);
@@ -26,6 +29,16 @@ const MyProducts = () => {
 
   return (
     <div>
+      <div className="flex justify-center items-center mt-12">
+        {loading && (
+          <span>
+            {" "}
+            <Box sx={{ display: "flex" }}>
+              <CircularProgress />
+            </Box>
+          </span>
+        )}
+      </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full lg:px-16 mt-12">
         {products?.map((product) => (
           <Link key={product._id} href={`/myProducts/${product._id}`}>

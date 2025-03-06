@@ -7,6 +7,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
+import { Rate } from "antd";
 
 const MyProducts = () => {
   const [products, setProducts] = useState([]);
@@ -32,10 +33,13 @@ const MyProducts = () => {
             </CardMedia>
             <CardContent>
               <Typography gutterBottom component="div">
-                <h3 className="font-semibold text-orange-600">Brand:{product.name}</h3>
-                <h3 className="font-semibold text-orange-600">Price:{product.price}</h3>
-                <h3 className="font-semibold text-orange-600">Guarantee:{product.guarantee}</h3>
-                <h3 className="font-semibold text-orange-600">Ratting:{product.rating}</h3>
+                <h3 className=" "><span className="font-extrabold">Brand: </span>{product.name}</h3>
+                <h3 className=" "><span className="font-extrabold">Price:</span>{product.price}</h3>
+                <h3 className=" "> <span className="font-extrabold">Features: </span>{product.features?.map((feature, index)=>(
+                    <li key={index}>{feature}</li>
+                ))}</h3>
+                <h3 className=" "><span className="font-extrabold">Guarantee: </span>{product.guarantee}</h3>
+                <Rate allowHalf value={product.rating}/>
               </Typography>
             </CardContent>
             <CardActions className="flex justify-between">

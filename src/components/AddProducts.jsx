@@ -1,5 +1,6 @@
 'use client'
 import React from 'react';
+import toast from 'react-hot-toast';
 
 const AddProducts = () => {
 
@@ -20,7 +21,9 @@ const AddProducts = () => {
             },
             body: JSON.stringify(bindItems)
         })
-        console.log(response);
+        if(response){
+            toast.success("Product added!");
+        }
     }
     return (
         <div>

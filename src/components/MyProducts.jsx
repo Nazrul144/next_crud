@@ -10,6 +10,7 @@ import Image from "next/image";
 import { Rate } from "antd";
 import Link from "next/link";
 import { Box, CircularProgress } from "@mui/material";
+import toast from "react-hot-toast";
 
 const MyProducts = () => {
   const [products, setProducts] = useState([]);
@@ -30,6 +31,9 @@ const MyProducts = () => {
       method: 'DELETE'
     })
     setProducts((prevProducts) => prevProducts.filter(product => product._id !== id));
+    if(deleted){
+      toast.success('Product Deleted!');
+    }
   };
 
   return (
@@ -75,9 +79,10 @@ const MyProducts = () => {
               </Typography>
             </CardContent>
             <CardActions className="flex justify-between">
-              <Button size="small">Update</Button>
+            <Link className="py-2 px-4 bg-red-900 text-white rounded-lg" key={product._id} href={`/myProducts/update/${product._id}`}>Update</Link>
+
               <Link className="py-2 px-4 bg-red-900 text-white rounded-lg" key={product._id} href={`/myProducts/${product._id}`}>View Details</Link>
-              <Button onClick={()=> handleDelete(product._id)} size="small">Delete</Button>
+              <Button className="py-2 px-4 bg-red-900 text-white rounded-lg" onClick={()=> handleDelete(product._id)} size="small">Delete</Button>
             </CardActions>
           </Card>
         ))}

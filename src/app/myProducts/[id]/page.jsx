@@ -1,6 +1,7 @@
 'use client'
 import { Rate } from "antd";
 import Image from "next/image";
+import Link from "next/link";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 const DetailsPage = () => {
@@ -55,13 +56,13 @@ console.log("Product Image:", products?.image);
               <li>Rating: <Rate allowHalf value={products.rating} /></li>
             </p>
             <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-              <a
+              <Link
                 rel="noopener noreferrer"
-                href="#"
+                href="/"
                 className="px-8 py-3 text-lg font-semibold rounded dark:bg-violet-600 dark:text-gray-50"
               >
-                Suspendisse
-              </a>
+                Back 
+              </Link>
               <a
                 rel="noopener noreferrer"
                 href="#"

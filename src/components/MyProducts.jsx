@@ -25,15 +25,11 @@ const MyProducts = () => {
     getData();
   }, []);
 
-  const handleDelete = async () => {
-    const response = await fetch(`myProducts/api/delete-product/${products._id}`, {
-      method: "DELETE",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(response),
-    });
-    console.log(response);
+  const handleDelete = async (id) => {
+    const deleted = await fetch(`http://localhost:3000/myProducts/api/delete-product/${id}`,{
+      method: 'DELETE'
+    })
+    setProducts((prevProducts) => prevProducts.filter(product => product._id !== id));
   };
 
   return (
@@ -81,7 +77,7 @@ const MyProducts = () => {
             <CardActions className="flex justify-between">
               <Button size="small">Update</Button>
               <Link className="py-2 px-4 bg-red-900 text-white rounded-lg" key={product._id} href={`/myProducts/${product._id}`}>View Details</Link>
-              <Button onClick={handleDelete} size="small">Delete</Button>
+              <Button onClick={()=> handleDelete(product._id)} size="small">Delete</Button>
             </CardActions>
           </Card>
         ))}
